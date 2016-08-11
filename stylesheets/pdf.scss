@@ -1,0 +1,118 @@
+@import 'shared';
+
+section[data-type="chapter"] {
+  page-break-after: always;
+  font-size: 110%;
+  padding: 40px;
+}
+
+p{
+  text-align: justify;
+}
+
+h1 { font-size: 200%; }
+h2 { font-size: 170%; }
+h3 { font-size: 125%; }
+
+section[data-type="chapter"] > h1:first-child{
+  background: #1273BF;
+  color: #FFF;
+  padding: 20px 150px;
+  margin-left: -150px;
+  margin-right: -150px;
+}
+
+section[data-type="sect1"] h1 { font-size: 170%; }
+section[data-type="sect2"] h2 { font-size: 125%; }
+
+nav {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+nav[data-type="toc"] a[href]::after {
+  display: inline-block;
+  float: right;
+  content: target-counter(attr(href), page)
+}
+
+div#full-content{
+  page: frontmatter;
+}
+
+@page frontmatter :left {
+   @bottom-left {
+    content: counter(page);
+  }
+}
+
+@page frontmatter :right {
+   @bottom-right {
+    content: counter(page);
+  }
+}
+
+@page frontmatter :last-child{
+  content: ""
+}
+
+#main-page {
+  page-break-after: always;
+  position: relative;
+  background: url('bg.png');
+  margin: -100px;
+  padding: 100px;
+  height: 900pt;
+
+  img {
+    display: block;
+    position: absolute;
+    top: 30%;
+    width: 70%;
+    padding-left: 20px;
+  }
+
+  h1 {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 55%;
+    font-size: 250%;
+    font-family: Arial Black;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-left: 20px;
+
+    span {
+      font-size: 120%;
+      color: #1273BF;
+    }
+  }
+}
+
+#last-page {
+  position: relative;
+  background: url('bg.png');
+  margin: -100px;
+  padding: 100px;
+  height: 900pt;
+
+  div{
+    position: absolute;
+    bottom: 30%;
+    right: 10%;
+    color: #1273BF;
+    font-size: 120%;
+    font-family: Arial Black;
+
+    p {
+      text-align: right;
+    }
+  }
+}
+
+
+// nav[data-type="toc"] a[href]::before {
+//   content: "[Strana " target-counter(attr(href), page)"]..."
+// }
+

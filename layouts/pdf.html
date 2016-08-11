@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ config.title }}</title>
+    {{ javascripts }}
+    {{ stylesheets }}
+  </head>
+  <body data-type="book">
+    {% include main.html %}
+    <div style="page-break-after: 'always'">
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    </div>
+    <div style="page-break-after: 'always'"><br></div>
+    <div id="full-content">
+    <div style="counter-reset: page 1;"> </div>
+    {{ content }}
+    <div style="page-break-after: 'always'"></div>
+    {% include last.html %}
+    </div>
+  </body>
+</html>

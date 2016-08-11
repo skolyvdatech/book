@@ -1,0 +1,27 @@
+{
+  "title" : "Jak otevírat data ve školách",
+  "destination" : "build/:build",
+  "files" : [
+    "content/toc.html",
+    "content/complete.md"
+  ],
+  "builds" : [
+    {
+      "format" : "pdf",
+      "layout" : "layouts/pdf.html",
+      "stylesheets" : {
+        "files" : ["stylesheets/pdf.scss"]
+      }
+    },
+    {
+      "format" : "html",
+      "layout" : "layouts/html.html",
+      "stylesheets" : {
+        "files" : ["stylesheets/html.scss"]
+      },
+      "javascripts" : {
+        "files" : ["javascripts/scripts.js"]
+      }
+    }
+  ]
+}
